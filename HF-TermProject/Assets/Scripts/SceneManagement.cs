@@ -7,31 +7,14 @@ public class SceneManagement : MonoBehaviour
 {
     public void StartGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(1); // GameLevel
-    }
-
-    public void Controls()
-    {
-
-    }
-
-    public void Options()
-    {
-
-    }
-
-    public void Credits()
-    {
-
+        AudioManager.amInstance.PlayAudio(TrackID.Castle);
     }
 
     public void ExitGame()
     {
-        
-    }
-
-    public void BackButton()
-    {
-
+        Debug.Log("Game Quit!");
+        Application.Quit();
     }
 }
