@@ -498,7 +498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1621057125508161496, guid: a44f5f12506c41d4b8588fb4b072a37d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.06
       objectReference: {fileID: 0}
     - target: {fileID: 1621057125508161496, guid: a44f5f12506c41d4b8588fb4b072a37d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -537,24 +537,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2672799127573783220, guid: a44f5f12506c41d4b8588fb4b072a37d, type: 3}
-      propertyPath: groundRadius
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2672799127573783220, guid: a44f5f12506c41d4b8588fb4b072a37d, type: 3}
-      propertyPath: verticalForce
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2672799127573783220, guid: a44f5f12506c41d4b8588fb4b072a37d, type: 3}
-      propertyPath: horizontalForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2672799127573783220, guid: a44f5f12506c41d4b8588fb4b072a37d, type: 3}
       propertyPath: airControlFactor
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954344450472374129, guid: a44f5f12506c41d4b8588fb4b072a37d, type: 3}
-      propertyPath: m_Mass
-      value: 5
+      value: 0.384
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a44f5f12506c41d4b8588fb4b072a37d, type: 3}

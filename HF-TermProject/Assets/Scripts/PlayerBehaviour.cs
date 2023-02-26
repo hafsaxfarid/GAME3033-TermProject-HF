@@ -33,8 +33,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        CheckIsGrounded();
         KnightMove();
+        CheckIsGrounded();
     }
 
     private void KnightMove()
@@ -69,7 +69,9 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else
         {
-            KnightJump();
+            //KnightJump();
+            playerAnimationController.SetInteger(animationState, (int)KnightAnimationStates.KNIGHT_JUMP); // jump state
+            kState = KnightAnimationStates.KNIGHT_JUMP;
 
             if (x != 0)
             {
@@ -86,7 +88,6 @@ public class PlayerBehaviour : MonoBehaviour
     private void KnightJump()
     {
         playerAnimationController.SetInteger(animationState, (int)KnightAnimationStates.KNIGHT_JUMP); // jump state
-        playerAnimationController.SetTrigger("Knight-Jump");
         kState = KnightAnimationStates.KNIGHT_JUMP;
     }
 
@@ -120,4 +121,9 @@ public class PlayerBehaviour : MonoBehaviour
         return x;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(groundOrigin.position, groundRadius);
+    }
 }
