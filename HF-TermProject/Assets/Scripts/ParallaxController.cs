@@ -5,7 +5,8 @@ using UnityEngine;
 public class ParallaxController : MonoBehaviour
 {
     public HorizontalDirection horizontalDirection;
-    public FloatReference speedMultiplier;
+    public FloatReference speedXMultiplier;
+    public FloatReference speedYMultiplier;
     public MoveType moveType;
     public Transform transformToFollow;
     public VerticalDirection verticalDirection;
@@ -72,7 +73,7 @@ public class ParallaxController : MonoBehaviour
 
         foreach(var item in imgs)
         {
-            item.InitImage(speedMultiplier, horizontalDirection, verticalDirection, moveType == MoveType.FollowTransform);
+            item.InitImage(speedXMultiplier, speedYMultiplier, horizontalDirection, verticalDirection, moveType == MoveType.FollowTransform);
         }
         if (moveType == MoveType.FollowTransform)
         {

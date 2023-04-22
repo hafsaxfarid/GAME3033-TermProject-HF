@@ -13,7 +13,8 @@ public class ParallaxImage : MonoBehaviour
     private float imageWidth;
     private float minLeftX;
     private float maxRightX;
-    private FloatReference speedMultiplier;
+    private FloatReference speedXMultiplier;
+    private FloatReference speedYMultiplier;
     private HorizontalDirection hDir;
     private VerticalDirection vDir;
 
@@ -21,7 +22,7 @@ public class ParallaxImage : MonoBehaviour
 
     public void MoveX(float moveBy)
     {
-        moveBy *= speedX * speedMultiplier.value;
+        moveBy *= speedX * speedXMultiplier.value;
         if (hDir == HorizontalDirection.Right) moveBy *= -1;
 
         moveBy = Mathf.Round(moveBy * roundFactor) / roundFactor;
@@ -38,7 +39,7 @@ public class ParallaxImage : MonoBehaviour
     }
     public void MoveY(float moveBy)
     {
-        moveBy *= speedY * speedMultiplier.value;
+        moveBy *= speedY * speedYMultiplier.value;
         if (vDir == VerticalDirection.Down) moveBy *= -1;
 
         for (int i = 0; i < controlledTransforms.Length; i++)
@@ -88,9 +89,10 @@ public class ParallaxImage : MonoBehaviour
         }
     }
 
-    public void InitImage(FloatReference speedMultiplier, HorizontalDirection hDir, VerticalDirection vDir, bool followTransform)
+    public void InitImage(FloatReference speedXMultiplier, FloatReference speedYMultiplier, HorizontalDirection hDir, VerticalDirection vDir, bool followTransform)
     {
-        this.speedMultiplier = speedMultiplier;
+        this.speedXMultiplier = speedXMultiplier;
+        this.speedYMultiplier = speedYMultiplier;
         this.hDir = hDir;
         this.vDir = vDir;
         this.followTransform = followTransform;

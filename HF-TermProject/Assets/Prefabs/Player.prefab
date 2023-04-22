@@ -221,14 +221,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110a4129d3f0b8d45945ab59d29d3d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalForce: 10
-  verticalForce: 30
+  horizontalForce: 20
+  verticalForce: 75
   groundOrigin: {fileID: 89927112}
   groundRadius: 1
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 256
   isGrounded: 0
-  airControlFactor: 0.1
+  airControlFactor: 0.225
   kState: 0
   playerAnimationController: {fileID: 1621057125113157912}
