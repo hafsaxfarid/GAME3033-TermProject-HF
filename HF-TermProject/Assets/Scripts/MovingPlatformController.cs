@@ -7,7 +7,7 @@ public class MovingPlatformController : MonoBehaviour
     public PlatformDirection dir;
 
     [Header("Movement Properties")]
-    [Range(1.0f, 20.0f)]
+    [Range(1.0f, 200.0f)]
     public float horizontalDistance = 8.0f;
     [Range(1.0f, 20.0f)]
     public float horizontalSpeed = 3.0f;
