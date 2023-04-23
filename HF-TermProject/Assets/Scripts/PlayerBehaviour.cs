@@ -13,7 +13,6 @@ public class PlayerBehaviour : MonoBehaviour
     public LayerMask groundLayerMask;
     public bool isGrounded;
     public bool isAttacking;
-    public bool isJumping;
 
     [Range(0.1f, 0.9f)]
     public float airControlFactor;
@@ -22,23 +21,23 @@ public class PlayerBehaviour : MonoBehaviour
     public KnightAnimationStates kState;
 
     private Rigidbody2D playerRB;
-   
+
     [SerializeField]
     private Animator playerAnimationController;
-    
+
     private string animationState = "KnightAnimatorState";
 
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
         isAttacking = false;
-        isJumping = false;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            isAttacking = true;
             KnightAttack();
         }
         else
@@ -59,7 +58,6 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (isGrounded)
         {
-            isJumping = false;
             // keyboard input    
             float y = Input.GetAxisRaw("Vertical");
             float jump = Input.GetAxisRaw("Jump");
@@ -116,21 +114,32 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-
     private void KnightJump()
     {
-        isJumping = true;
-        playerAnimationController.SetTrigger("KnightJump");
-        kState = KnightAnimationStates.KNIGHT_JUMP;
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            playerAnimationController.SetTrigger("KnightJump");
+            kState = KnightAnimationStates.KNIGHT_JUMP;
+        }
+
+        playerAnimationController.SetInteger(animationState, (int)KnightAnimationStates.KNIGHT_IDLE); // idle state
+        kState = KnightAnimationStates.KNIGHT_IDLE;
     }
 
     private void KnightAttack()
     {
-        isAttacking = true;
-        playerAnimationController.SetTrigger("KnightAttack");
-        kState = KnightAnimationStates.KNIGHT_ATTACK;
+        if (isAttacking == true)
+        {
+            playerAnimationController.SetTrigger("KnightAttack");
+            kState = KnightAnimationStates.KNIGHT_ATTACK;
 
-        //Collider2D[] enemyHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+            //Collider2D[] enemyHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+        }
+
+        isAttacking = false;
+        playerAnimationController.SetInteger(animationState, (int)KnightAnimationStates.KNIGHT_IDLE); // idle state
+        kState = KnightAnimationStates.KNIGHT_IDLE;
+
     }
 
     private void KnightHurt()
