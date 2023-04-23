@@ -1315,7 +1315,9 @@ MonoBehaviour:
 
     A - move left
 
-    D - move right'
+    D - move right
+
+    SPACE - attack'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe601162d666a474faa72c3e42bb6755, type: 2}
   m_sharedMaterial: {fileID: 5554081126606573550, guid: fe601162d666a474faa72c3e42bb6755, type: 2}
