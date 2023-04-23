@@ -85,6 +85,23 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("MovingPlatform"))
+        {
+            transform.SetParent(other.transform);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("MovingPlatform"))
+        {
+            transform.SetParent(null);
+        }
+    }
+
+
     private void KnightJump()
     {
         playerAnimationController.SetInteger(animationState, (int)KnightAnimationStates.KNIGHT_JUMP); // jump state

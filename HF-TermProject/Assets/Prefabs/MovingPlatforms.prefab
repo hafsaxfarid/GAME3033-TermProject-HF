@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2962371639919481404}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Path Point (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9001191008584076337}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Path Point (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,9 +74,9 @@ GameObject:
   - component: {fileID: 5825956947581096591}
   - component: {fileID: 6335138781356480699}
   - component: {fileID: 498915857940968748}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MovingPlatforms
-  m_TagString: Untagged
+  m_TagString: MovingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4288970018229133797}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Path Point (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5933106309462059911}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Path Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}

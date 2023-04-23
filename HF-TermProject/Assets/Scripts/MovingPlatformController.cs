@@ -98,12 +98,4 @@ public class MovingPlatformController : MonoBehaviour
                 break;
         }
     }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        collision.gameObject.transform.SetParent(transform);
-    }
-    public void OnCollisionExit2D(Collision2D collision)
-    {
-        collision.gameObject.transform.SetParent(null);
-    }
 }
