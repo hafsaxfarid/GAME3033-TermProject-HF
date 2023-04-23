@@ -12,6 +12,8 @@ public class PlayerBehaviour : MonoBehaviour
     public float groundRadius;
     public LayerMask groundLayerMask;
     public bool isGrounded;
+    public bool isAttacking;
+    public bool isJumping;
 
     [Range(0.1f, 0.9f)]
     public float airControlFactor;
@@ -29,6 +31,20 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
+        isAttacking = false;
+        isJumping = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            KnightAttack();
+        }
+        else
+        {
+            isAttacking = false;
+        }
     }
 
     void FixedUpdate()
@@ -43,6 +59,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (isGrounded)
         {
+            isJumping = false;
             // keyboard input    
             float y = Input.GetAxisRaw("Vertical");
             float jump = Input.GetAxisRaw("Jump");
@@ -69,9 +86,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else
         {
-            //KnightJump();
-            playerAnimationController.SetInteger(animationState, (int)KnightAnimationStates.KNIGHT_JUMP); // jump state
-            kState = KnightAnimationStates.KNIGHT_JUMP;
+            KnightJump();
 
             if (x != 0)
             {
@@ -104,23 +119,30 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void KnightJump()
     {
-        playerAnimationController.SetInteger(animationState, (int)KnightAnimationStates.KNIGHT_JUMP); // jump state
+        isJumping = true;
+        playerAnimationController.SetTrigger("KnightJump");
         kState = KnightAnimationStates.KNIGHT_JUMP;
     }
 
     private void KnightAttack()
     {
+        isAttacking = true;
+        playerAnimationController.SetTrigger("KnightAttack");
+        kState = KnightAnimationStates.KNIGHT_ATTACK;
 
+        //Collider2D[] enemyHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
     }
 
     private void KnightHurt()
     {
-
+        playerAnimationController.SetInteger(animationState, (int)KnightAnimationStates.KNIGHT_HURT); // hurt state
+        kState = KnightAnimationStates.KNIGHT_HURT;
     }
 
     private void KnightDie()
     {
-
+        playerAnimationController.SetInteger(animationState, (int)KnightAnimationStates.KNIGHT_DIE); // die state
+        kState = KnightAnimationStates.KNIGHT_DIE;
     }
 
     public void CheckIsGrounded()
