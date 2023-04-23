@@ -11,6 +11,7 @@ public class MenuController : MonoBehaviour
     public void Respawn(GameObject go)
     {
         go.transform.position = startPoint.position;
+        Time.timeScale = 1f;
         victoryPanel.SetActive(false);
         gameOverPanel.SetActive(false);
     }

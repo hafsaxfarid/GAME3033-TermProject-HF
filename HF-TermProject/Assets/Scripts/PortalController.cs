@@ -10,6 +10,7 @@ public class PortalController : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
+            Time.timeScale = 0.0f;
             victoryPanel.SetActive(true);
         }
     }

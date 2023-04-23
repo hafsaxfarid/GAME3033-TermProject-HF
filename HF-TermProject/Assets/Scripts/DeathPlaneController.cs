@@ -10,6 +10,7 @@ public class DeathPlaneController : MonoBehaviour
     {
         if(collision.gameObject.name == "Player")
         {
+            Time.timeScale = 0.0f;
             gameOverPanel.SetActive(true);
         }
     }
