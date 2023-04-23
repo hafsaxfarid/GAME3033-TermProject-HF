@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class DeathPlaneController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    GameObject gameOverPanel;
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(collision.gameObject.name == "Player")
+        {
+            gameOverPanel.SetActive(true);
+        }
     }
 }
